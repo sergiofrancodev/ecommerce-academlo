@@ -1,0 +1,15 @@
+extends base
+
+block emailContent
+  p A new order has been created
+
+  div(class="post-card")
+    if productInCart.length === 0
+      p No products available to purchase
+    else
+      each product in productInCart
+        div(class="post-card")
+          h3 Item: #{product.product.title}
+          p Unit price: $#{product.product.price}
+          p Quantity purchase: #{product.quantity} UND
+    p(class="post-card__content") Total price: $#{totalPrice}
